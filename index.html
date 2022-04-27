@@ -12,7 +12,9 @@
     <script>
         function c(event, co) {
             document.querySelector("#aa").style.color = co.hex;
-
+            colorPicker.reset();
+            event.target.result.style.border = "1px solid black";
+            
         }
         var colorPicker = new ColorBuilder("chooseColor", 4, 2, c);
         colorPicker.setColors(["#ff3030", "#ff8080", "#ff7700", "#ffa759", "#ffec19", "#fcf988", "#4ce600", "#a7ff7a", "#0062ff", "#75aaff"]);
