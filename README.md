@@ -3,4 +3,8 @@
 Many websites have features for selecting colors.<br> Many websites also have a default colors sidebars for easy access.<br> That can be hard to make though.<br>
 #### That's where Colorbuilder comes in.<br>
 Colorbuilder makes it easy to create a dynamic and customizable default colors box without needing many lines of code.
+```js
+var colorPicker = new ColorBuilder();
+```
+Find an example at https://quixt.github.io/colorbuilder.js
 
