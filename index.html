@@ -13,7 +13,7 @@
         function c(event, co) {
             document.querySelector("#aa").style.color = co.hex;
             colorPicker.reset();
-            event.target.result.style.border = "1px solid black";
+            event.target.style.border = "1px solid black";
             
         }
         var colorPicker = new ColorBuilder("chooseColor", 4, 2, c);
