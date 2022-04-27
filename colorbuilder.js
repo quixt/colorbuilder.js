@@ -56,7 +56,7 @@ class ColorBuilder {
 
     reset = () => {
         this.modelsList.forEach(el => {
-            el.style = this.style;
+            el.style.cssText += ";" + this.style;
         })
     }
 }
