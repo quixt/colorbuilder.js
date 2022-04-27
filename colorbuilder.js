@@ -8,6 +8,7 @@ class ColorBuilder {
         this.modelsList = [];
         this.container = document.createElement('table');
         this.container.id = this.name;
+        this.tyle = "";
 
 
 
@@ -21,6 +22,7 @@ class ColorBuilder {
             let parsedModel = el.firstChild.lastChild.firstChild;
             parsedModel.addEventListener("click", (e) => { this.callback(e, color) });
             parsedModel.classList.add("color-selector");
+            this.style = parsedModel.style ? parsedModel.style : "";
             this.modelsList.push(el.firstChild.lastChild.firstChild);
         });
         console.log(this.modelsList);
@@ -50,6 +52,12 @@ class ColorBuilder {
 
         document.body.appendChild(this.container);
         console.log(this.container)
+    }
+
+    reset = () => {
+        this.modelsList.forEach(el => {
+            el.style = this.style;
+        })
     }
 }
 
