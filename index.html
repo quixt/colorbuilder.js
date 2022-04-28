@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ColorBuilder Example</title>
 </head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        text-align:center;   
+    }
+    #aa {
+        font-size: 100px;
+        font-family: sans-serif;
+    }
+    table {
+        display:block;
+        margin: 0 auto;
+    }
+</style>
 <body>
     <h1 id="aa">Change my Color!</h1>
     <script src="./colorbuilder.js"></script>
@@ -18,7 +34,7 @@
         }
         var colorPicker = new ColorBuilder("chooseColor", 4, 2, c);
         colorPicker.setColors(["#ff3030", "#ff8080", "#ff7700", "#ffa759", "#ffec19", "#fcf988", "#4ce600", "#a7ff7a", "#0062ff", "#75aaff"]);
-        colorPicker.setModel(`<div></div>`,{width: "20px", height: "20px", backgroundColor: "{{COLOR}}", borderRadius: "4px;"});
+        colorPicker.setModel(`<div></div>`,{width: "80px", height: "80px", backgroundColor: "{{COLOR}}", borderRadius: "8px;"});
         colorPicker.render();
     </script>
 </body>
