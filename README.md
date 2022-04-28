@@ -1,4 +1,5 @@
 # colorbuilder.js
+See this in action at https://quixt.github.io/colorbuilder.js
 ![image](https://user-images.githubusercontent.com/88290402/165171121-2fbb0c37-48ad-40c4-8969-3cd4e3884f51.png)<br>
 Many websites have features for selecting colors.<br> Many websites also have a default colors sidebars for easy access.<br> That can be hard to make though.<br>
 #### That's where Colorbuilder comes in.<br>
@@ -51,7 +52,6 @@ colorPicker.setColors(["#FF0000","#00FF00","#0000FF"]);
 colorPicker.setModel("<div></div>",{width:"20px",height:"20px",backgroundColor:"{{COLOR}}"});
 ```
 Here the background color of the red color selector will be red, the blue blue, and the green green.
-Find an example at https://quixt.github.io/colorbuilder.js
 ## Rendering
 Finally, to show the color picker run the function `render()`. Have fun coloring!  
 ```js
