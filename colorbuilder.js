@@ -8,22 +8,26 @@ class ColorBuilder {
         this.modelsList = [];
         this.container = document.createElement('table');
         this.container.id = this.name;
-        this.style = "";
+        this.tyle = "";
 
 
 
     }
 
 
-    setModel = (modelString) => {
-        var parsedString = new DOMParser().parseFromString(modelString, 'text/xml');
+    setModel = (modelString, style) => {
+        this.style = style;
+        var el = new DOMParser().parseFromString(modelString, 'text/html');
+        var parsedModel = el.firstChild.lastChild.firstChild;
         this.colorsList.forEach(color => {
-            let el = new DOMParser().parseFromString(modelString.replace(/\{\{COLOR\}\}/g, color.hex), 'text/html');
-            let parsedModel = el.firstChild.lastChild.firstChild;
-            parsedModel.addEventListener("click", (e) => { this.callback(e, color) });
-            parsedModel.classList.add("color-selector");
-            this.style = parsedModel.style ? parsedModel.style : "";
-            this.modelsList.push(el.firstChild.lastChild.firstChild);
+            let newModel = parsedModel.cloneNode(true);
+            for (var key in style) {
+                newModel.style[key] = style[key].replace(/\{\{COLOR\}\}/g, color.hex);
+            }
+            newModel.addEventListener("click", (e) => { this.callback(e, color) });
+            newModel.innerHTML = newModel.innerHTML.replace(/\{\{COLOR\}\}/g, color.hex);
+            newModel.classList.add("color-selector");
+            this.modelsList.push({ model: newModel, color: color });
         });
         console.log(this.modelsList);
     }
@@ -33,7 +37,7 @@ class ColorBuilder {
                 if (color.match(/#([a-f0-9]){6}/)) {
                     this.colorsList.push(new Color(color));
                 } else {
-                    console.log("not a valid color");
+                    throw new Error("Invalid color format");
                 }
             });
         }
@@ -44,7 +48,7 @@ class ColorBuilder {
             for (let j = 0; j < this.width; j++) {
                 let cell = document.createElement('td');
 
-                cell.appendChild(this.modelsList[i * this.width + j]);
+                cell.appendChild(this.modelsList[i * this.width + j].model);
                 row.appendChild(cell);
             }
             this.container.appendChild(row);
@@ -54,9 +58,11 @@ class ColorBuilder {
         console.log(this.container)
     }
 
-    reset = () => {
+    removeStyles = (stylesToRemove) => {
         this.modelsList.forEach(el => {
-            el.style.cssText += ";" + this.style;
+            for (let i = 0; i < stylesToRemove.length; i++) {
+                el.model.style[stylesToRemove[i]] = "";
+            }
         })
     }
 }
