@@ -21,13 +21,18 @@
         display:block;
         margin: 0 auto;
     }
+    #changeh1 {
+        display:flex;
+        justify-content:center;
+    }
 </style>
 <body>
-    <h1 id="aa">Change my Color</h1>
+    <h1 id="change">Change my Color</h1>
+    <div id="changeh1"></div>
     <script src="./colorbuilder.js"></script>
     <script>
         function c(event, co) {
-            document.querySelector("#aa").style.color = co.hex;
+            document.querySelector("#change").style.color = co.hex;
             colorPicker.removeStyles(["border"]);
             event.target.style.border = "1px solid black";
             
@@ -35,7 +40,7 @@
         var colorPicker = new ColorBuilder("chooseColor", 4, 2, c);
         colorPicker.setColors(["#ff3030", "#ff8080", "#ff7700", "#ffa759", "#ffec19", "#fcf988", "#4ce600", "#a7ff7a", "#0062ff", "#75aaff"]);
         colorPicker.setModel(`<div></div>`,{width: "30px", height: "30px", backgroundColor: "{{COLOR}}", borderRadius: "8px;"});
-        colorPicker.render();
+        colorPicker.render(document.querySelector("#changeh1"));
     </script>
 </body>
 </html>
