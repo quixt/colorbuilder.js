@@ -42,7 +42,7 @@ class ColorBuilder {
             });
         }
     }
-    render = () => {
+    render = (root) => {
         for (let i = 0; i < this.height; i++) {
             let row = document.createElement('tr');
             for (let j = 0; j < this.width; j++) {
@@ -54,7 +54,7 @@ class ColorBuilder {
             this.container.appendChild(row);
         }
 
-        document.body.appendChild(this.container);
+        root.appendChild(this.container);
         console.log(this.container)
     }
 
