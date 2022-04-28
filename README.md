@@ -52,4 +52,12 @@ colorPicker.setModel("<div></div>",{width:"20px",height:"20px",backgroundColor:"
 ```
 Here the background color of the red color selector will be red, the blue blue, and the green green.
 Find an example at https://quixt.github.io/colorbuilder.js
+## Rendering
+Finally, to show the color picker run the function `render()`. Have fun coloring!  
+```js
+var colorPicker = new ColorBuilder("colorPicker", 3, 1);
+colorPicker.setColors(["#FF0000","#00FF00","#0000FF"]);
+colorPicker.setModel("<div></div>",{width:"20px",height:"20px",backgroundColor:"{{COLOR}}"});
+colorPicker.render();
+```
 
