@@ -12,13 +12,13 @@
     <script>
         function c(event, co) {
             document.querySelector("#aa").style.color = co.hex;
-            colorPicker.reset();
+            colorPicker.remove(["border"]);
             event.target.style.border = "1px solid black";
             
         }
         var colorPicker = new ColorBuilder("chooseColor", 4, 2, c);
         colorPicker.setColors(["#ff3030", "#ff8080", "#ff7700", "#ffa759", "#ffec19", "#fcf988", "#4ce600", "#a7ff7a", "#0062ff", "#75aaff"]);
-        colorPicker.setModel(`<div style="width: 20px; height: 20px; background-color: {{COLOR}}; border-radius: 4px;"></div>`);
+        colorPicker.setModel(`<div></div>`,{width: "20px", height: "20px", backgroundColor: "{{COLOR}}", borderRadius: "4px;"});
         colorPicker.render();
     </script>
 </body>
