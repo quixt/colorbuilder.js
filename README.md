@@ -38,8 +38,18 @@ The div has no styles though and will not show up.
 ```js
 var colorPicker = new ColorBuilder("colorPicker", 3, 1);
 colorPicker.setColors(["#FF0000","#00FF00","#0000FF"]);
-colorPicker.setModel("<div></div>",{width:"20px",height:"20px");
+colorPicker.setModel("<div></div>",{width:"20px",height:"20px"});
 ```
-Here we set all of the elements to be 20 pixels tall and 20 pixels wide.
+Here we set all of the elements to be 20 pixels tall and 20 pixels wide.  
+But what if we wanted each element to have their background color be the color their assigned?
+### Setting Local Color
+In this example, each selector will have the background color be the color they were assigned.  
+The string `{{COLOR}}` will be replaced with the selectors color.  
+```js
+var colorPicker = new ColorBuilder("colorPicker", 3, 1);
+colorPicker.setColors(["#FF0000","#00FF00","#0000FF"]);
+colorPicker.setModel("<div></div>",{width:"20px",height:"20px",backgroundColor:"{{COLOR}}"});
+```
+Here the background color of the red color selector will be red, the blue blue, and the green green.
 Find an example at https://quixt.github.io/colorbuilder.js
 
