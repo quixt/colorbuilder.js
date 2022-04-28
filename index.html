@@ -14,7 +14,7 @@
         text-align:center;   
     }
     #aa {
-        font-size: 100px;
+        font-size: 50px;
         font-family: sans-serif;
     }
     table {
@@ -23,7 +23,7 @@
     }
 </style>
 <body>
-    <h1 id="aa">Change my Color!</h1>
+    <h1 id="aa">Change my Color</h1>
     <script src="./colorbuilder.js"></script>
     <script>
         function c(event, co) {
@@ -34,7 +34,7 @@
         }
         var colorPicker = new ColorBuilder("chooseColor", 4, 2, c);
         colorPicker.setColors(["#ff3030", "#ff8080", "#ff7700", "#ffa759", "#ffec19", "#fcf988", "#4ce600", "#a7ff7a", "#0062ff", "#75aaff"]);
-        colorPicker.setModel(`<div></div>`,{width: "80px", height: "80px", backgroundColor: "{{COLOR}}", borderRadius: "8px;"});
+        colorPicker.setModel(`<div></div>`,{width: "30px", height: "30px", backgroundColor: "{{COLOR}}", borderRadius: "8px;"});
         colorPicker.render();
     </script>
 </body>
