@@ -8,7 +8,7 @@ class ColorBuilder {
         this.modelsList = [];
         this.container = document.createElement('table');
         this.container.id = this.name;
-        this.tyle = "";
+        this.style = "";
 
 
 
